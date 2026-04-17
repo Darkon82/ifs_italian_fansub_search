@@ -1764,42 +1764,6 @@
                     "selected": true
                 },
                 {
-                    "name": "SubZero",
-                    "short_name": "",
-                    "socials": [{
-                            "type": "web",
-                            "value": "http://www.subzero.it"
-                        },
-                        {
-                            "type": "facebook",
-                            "value": "http://www.facebook.com/SubZero.fansub"
-                        },
-                        {
-                            "type": "instagram",
-                            "value": "https://www.instagram.com/subzero_fansub"
-                        },
-                        {
-                            "type": "twitter",
-                            "value": "https://twitter.com/Subzero_fansub"
-                        }
-                    ],
-                    "torrent_sources": [{
-                            "type": "nyaa",
-                            "value": "https://nyaa.si/user/SubZero"
-                        },
-                        {
-                            "type": "torrent",
-                            "value": "http://www.subzero.it/torrent"
-                        }
-                    ],
-                    "rss_sources": [{
-                        "type": "nyaa",
-                        "value": "https://nyaa.si/?page=rss&u=SubZero"
-                    }],
-                    "notes": "",
-                    "selected": true
-                },
-                {
                     "name": "STS Italia Fansub",
                     "short_name": "",
                     "socials": [{
@@ -6572,6 +6536,35 @@
                     "socials": [],
                     "torrent_sources": [],
                     "rss_sources": [],
+                    "notes": "",
+                    "selected": true
+                },
+                {
+                    "name": "SubZero",
+                    "short_name": "",
+                    "socials": [
+                        {
+                            "type": "facebook",
+                            "value": "http://www.facebook.com/SubZero.fansub"
+                        },
+                        {
+                            "type": "instagram",
+                            "value": "https://www.instagram.com/subzero_fansub"
+                        },
+                        {
+                            "type": "twitter",
+                            "value": "https://twitter.com/Subzero_fansub"
+                        }
+                    ],
+                    "torrent_sources": [{
+                            "type": "nyaa",
+                            "value": "https://nyaa.si/user/SubZero"
+                        }
+                    ],
+                    "rss_sources": [{
+                        "type": "nyaa",
+                        "value": "https://nyaa.si/?page=rss&u=SubZero"
+                    }],
                     "notes": "",
                     "selected": true
                 },
