@@ -7,6 +7,52 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />
     <title>IFS - Italian Fansub Search</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        /* Stili per il menu a tendina dei fansub inattivi */
+        .toggle-btn {
+            background-color: #f1f1f1;
+            color: #333;
+            cursor: pointer;
+            padding: 15px;
+            width: 100%;
+            border: 1px solid #ddd;
+            text-align: left;
+            outline: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-top: 20px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: 0.3s;
+        }
+
+        .toggle-btn:hover {
+            background-color: #e2e2e2;
+        }
+
+        .toggle-btn:after {
+            content: '\002B'; /* Segno + */
+            font-size: 1.5rem;
+        }
+
+        .toggle-btn.active:after {
+            content: "\2212"; /* Segno - */
+        }
+
+        /* Contenitore nascosto di default */
+        .collapsible-content {
+            padding: 0 18px;
+            display: none;
+            overflow: hidden;
+            background-color: transparent;
+        }
+        
+        .section_global {
+            margin-top: 10px;
+        }
+    </style>
 </head>
 
 <body onload="ifs_main()">
@@ -22,7 +68,7 @@
             Poich&eacute; i risultati della ricerca dipendono strettamente dall'indicizzazione di google, dal formato dei siti dei fansub e da come sono scritti i post dei vari annunci, la ricerca potrebbe dare risultati incompleti.</br>
             Nelle tabelle sottostanti sono riportati i riferimenti e link dei fansub (attivi e non) e di vari attori che operano nel panorama italiano.</br>
             Si ringrazia immensamente Vaz per aver stilato e per tenere aggiornata la lista dei fansub.</br>
-            Il codice e i dati dei fansub sono disponibili su <a href="https://github.com/nekonyan14986/ifs_italian_fansub_search" target="_blank">github</a>.
+            Il codice e i dati dei fansub sono disponibili su <a href="https://github.com/Darkon82/ifs_italian_fansub_search" target="_blank">github</a>.
         </p>
         <p>
             Ultimo aggiornamento dei dati <b><span id="info"></span></b>
@@ -48,10 +94,29 @@
 
 
     <div class="content">
-        <div class="row" style="justify-content: center;margin:0">
-        </div>
+        <div class="row" id="main-container" style="justify-content: center;margin:0">
+            </div>
     </div>
+
     <script src="assets/js/main.js"></script>
+    
+    <script>
+        /**
+         * Funzione per gestire l'apertura/chiusura del menu inattivi
+         * Viene chiamata dinamicamente quando il pulsante viene cliccato
+         */
+        function toggleInattivi() {
+            const btn = document.getElementById("btn-inattivi");
+            const content = document.getElementById("content-inattivi");
+            
+            btn.classList.toggle("active");
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        }
+    </script>
 
 </body>
 
