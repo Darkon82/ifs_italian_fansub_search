@@ -1,5 +1,5 @@
 {
-    "last_update": "2025-04-08",
+    "last_update": "2026-04-23",
     "data": {
         "alive": {
             "name": "Fansub Attivi",
@@ -87,38 +87,6 @@
                     ],
                     "torrent_sources": [],
                     "rss_sources": [],
-                    "notes": "",
-                    "selected": true
-                },
-                {
-                    "name": "Best Fansub Ever",
-                    "short_name": "BFE",
-                    "socials": [{
-                            "type": "web",
-                            "value": "http://bestfansubever.forumfree.it"
-                        },
-                        {
-                            "type": "facebook",
-                            "value": "https://www.facebook.com/BestFansubEver?fref=ts"
-                        }
-                    ],
-                    "torrent_sources": [{
-                        "type": "nyaa",
-                        "value": "https://nyaa.si/user/BestFansubEver"
-                    }],
-                    "rss_sources": [{
-                            "type": "generic_rss",
-                            "value": "https://bestfansubever.forumfree.it/rss.php?c=874025"
-                        },
-                        {
-                            "type": "generic_rss",
-                            "value": "https://bestfansubever.forumfree.it/rss.php?c=874025&src=tag"
-                        },
-                        {
-                            "type": "nyaa",
-                            "value": "https://nyaa.si/?page=rss&u=BestFansubEver"
-                        }
-                    ],
                     "notes": "",
                     "selected": true
                 },
@@ -6645,6 +6613,38 @@
                     "notes": "",
                     "selected": true
                 },
+                {
+                    "name": "Best Fansub Ever",
+                    "short_name": "BFE",
+                    "socials": [{
+                            "type": "web",
+                            "value": "http://bestfansubever.forumfree.it"
+                        },
+                        {
+                            "type": "facebook",
+                            "value": "https://www.facebook.com/BestFansubEver?fref=ts"
+                        }
+                    ],
+                    "torrent_sources": [{
+                        "type": "nyaa",
+                        "value": "https://nyaa.si/user/BestFansubEver"
+                    }],
+                    "rss_sources": [{
+                            "type": "generic_rss",
+                            "value": "https://bestfansubever.forumfree.it/rss.php?c=874025"
+                        },
+                        {
+                            "type": "generic_rss",
+                            "value": "https://bestfansubever.forumfree.it/rss.php?c=874025&src=tag"
+                        },
+                        {
+                            "type": "nyaa",
+                            "value": "https://nyaa.si/?page=rss&u=BestFansubEver"
+                        }
+                    ],
+                    "notes": "",
+                    "selected": true
+                }
             ]
         }
     }
