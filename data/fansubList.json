@@ -105,74 +105,6 @@
                     "selected": true
                 },
                 {
-                    "name": "BinKanTeam Fansub",
-                    "short_name": "BKT",
-                    "socials": [{
-                            "type": "web",
-                            "value": "http://narutoninja.forumfree.it"
-                        },
-                        {
-                            "type": "facebook",
-                            "value": "https://www.facebook.com/Binkanteam"
-                        },
-                        {
-                            "type": "discord",
-                            "value": "https://discord.gg/nMeBCmn"
-                        },
-                        {
-                            "type": "skype",
-                            "value": "skype:?chat&blob=h89enwvOgSSjAKgc-Nay1R1RBh3acetczIqdhWt8I7eJoZpm0i7mhLAIIzYkFrXD-87UMr_v_CQRZZDZ"
-                        }
-                    ],
-                    "torrent_sources": [{
-                        "type": "nyaa",
-                        "value": "https://nyaa.si/user/kashim"
-                    }],
-                    "rss_sources": [{
-                        "type": "nyaa",
-                        "value": "https://nyaa.si/?page=rss&u=kashim"
-                    }],
-                    "notes": "",
-                    "selected": true
-                },
-                {
-                    "name": "Bleach Anime Manga",
-                    "short_name": "BAM",
-                    "socials": [{
-                            "type": "web",
-                            "value": "https://bam.forumcommunity.net/"
-                        },
-                        {
-                            "type": "facebook",
-                            "value": "https://www.facebook.com/people/BAM-Bleach-Anime-Manga/100067975148201/"
-                        },
-                        {
-                            "type": "tg_channel",
-                            "value": "https://t.me/BAMForum"
-                        },
-                        {
-                            "type": "web",
-                            "value": "https://blog.libero.it/wp/animelovers"
-                        },
-                        {
-                            "type": "web",
-                            "value": "http://www.bleachanimemanga.org"
-                        }
-                    ],
-                    "torrent_sources": [],
-                    "rss_sources": [{
-                        "type": "generic_rss",
-                        "value": "https://bam.forumcommunity.net/rss.php?c=657801"
-                    },
-                    {
-                        "type": "generic_rss",
-                        "value": "https://bam.forumcommunity.net/rss.php?c=657801&src=tag"
-                    }
-                ],
-                    "notes": "",
-                    "selected": true
-                },
-                {
                     "name": "Bowling Ball Fansubs",
                     "short_name": "BBF",
                     "socials": [{
@@ -6642,6 +6574,74 @@
                             "value": "https://nyaa.si/?page=rss&u=BestFansubEver"
                         }
                     ],
+                    "notes": "",
+                    "selected": true
+                },
+                {
+                    "name": "BinKanTeam Fansub",
+                    "short_name": "BKT",
+                    "socials": [{
+                            "type": "web",
+                            "value": "http://narutoninja.forumfree.it"
+                        },
+                        {
+                            "type": "facebook",
+                            "value": "https://www.facebook.com/Binkanteam"
+                        },
+                        {
+                            "type": "discord",
+                            "value": "https://discord.gg/nMeBCmn"
+                        },
+                        {
+                            "type": "skype",
+                            "value": "skype:?chat&blob=h89enwvOgSSjAKgc-Nay1R1RBh3acetczIqdhWt8I7eJoZpm0i7mhLAIIzYkFrXD-87UMr_v_CQRZZDZ"
+                        }
+                    ],
+                    "torrent_sources": [{
+                        "type": "nyaa",
+                        "value": "https://nyaa.si/user/kashim"
+                    }],
+                    "rss_sources": [{
+                        "type": "nyaa",
+                        "value": "https://nyaa.si/?page=rss&u=kashim"
+                    }],
+                    "notes": "",
+                    "selected": true
+                },
+                {
+                    "name": "Bleach Anime Manga",
+                    "short_name": "BAM",
+                    "socials": [{
+                            "type": "web",
+                            "value": "https://bam.forumcommunity.net/"
+                        },
+                        {
+                            "type": "facebook",
+                            "value": "https://www.facebook.com/people/BAM-Bleach-Anime-Manga/100067975148201/"
+                        },
+                        {
+                            "type": "tg_channel",
+                            "value": "https://t.me/BAMForum"
+                        },
+                        {
+                            "type": "web",
+                            "value": "https://blog.libero.it/wp/animelovers"
+                        },
+                        {
+                            "type": "web",
+                            "value": "http://www.bleachanimemanga.org"
+                        }
+                    ],
+                    "torrent_sources": [],
+                    "rss_sources": [{
+                        "type": "generic_rss",
+                        "value": "https://bam.forumcommunity.net/rss.php?c=657801"
+                    },
+                    {
+                        "type": "generic_rss",
+                        "value": "https://bam.forumcommunity.net/rss.php?c=657801&src=tag"
+                    }
+                ],
                     "notes": "",
                     "selected": true
                 }
