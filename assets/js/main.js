@@ -2,27 +2,32 @@
 
 async function loadData() {
     //load fansub data
-    //let url = `./data/fansubList.json?time=${Date.now()}`;
-    let url = `https://raw.githubusercontent.com/nekonyan14986/ifs_italian_fansub_search/master/data/fansubList.json?time=${Date.now()}`;
-    //let url = `./data/fansubList_small.json?time=${Date.now()}`;
-    await fetch(url)
-        .then(response => response.json())
+    //let url = `https://raw.githubusercontent.com/nekonyan14986/ifs_italian_fansub_search/master/data/fansubList.json?time=${Date.now()}`;
+	let url = `./data/fansubList.json?time=${Date.now()}`;
+
+	await fetch(url)
+        .then(response => {
+            if (!response.ok) throw new Error("Errore nel caricamento di fansubList.json");
+            return response.json();
+        })
         .then(data => {
             window.fansubData = data;
         })
-        .catch(error => console.log(error));
+        .catch(error => console.error("Errore loadData:", error));
 }
 
 async function loadIcons() {
-    //load fansub data
-    //let url = `./data/types.json?time=${Date.now()}`;
-    let url = `https://raw.githubusercontent.com/nekonyan14986/ifs_italian_fansub_search/master/data/types.json?time=${Date.now()}`;
+    let url = `./data/types.json?time=${Date.now()}`;
+    
     await fetch(url)
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) throw new Error("Errore nel caricamento di types.json");
+            return response.json();
+        })
         .then(data => {
             window.icons_mapping = data;
         })
-        .catch(error => console.log(error));
+        .catch(error => console.error("Errore loadIcons:", error));
 }
 
 function create_section(name, table_id) {
