@@ -66,33 +66,6 @@
                     "selected": true
                 },
                 {
-                    "name": "AnimeShinigami",
-                    "short_name": "",
-                    "socials": [{
-                            "type": "web",
-                            "value": "http://animeshinigami.altervista.org/joomla"
-                        },
-                        {
-                            "type": "tg_channel",
-                            "value": "https://t.me/AnimeShinigamiFansub"
-                        },
-                        {
-                            "type": "dailymotion",
-                            "value": "https://www.dailymotion.com/AnimeShinigami"
-                        }
-                    ],
-                    "torrent_sources": [{
-                        "type": "nyaa",
-                        "value": "https://nyaa.si/user/Dhymos75"
-                    }],
-                    "rss_sources": [{
-                        "type": "nyaa",
-                        "value": "https://nyaa.si/?page=rss&u=Dhymos75"
-                    }],
-                    "notes": "",
-                    "selected": true
-                },
-                {
                     "name": "AsianWorld",
                     "short_name": "",
                     "socials": [{
@@ -6644,7 +6617,34 @@
                     "rss_sources": [],
                     "notes": "",
                     "selected": true
-                }
+                },
+                {
+                    "name": "AnimeShinigami",
+                    "short_name": "",
+                    "socials": [{
+                            "type": "web",
+                            "value": "http://animeshinigami.altervista.org/joomla"
+                        },
+                        {
+                            "type": "tg_channel",
+                            "value": "https://t.me/AnimeShinigamiFansub"
+                        },
+                        {
+                            "type": "dailymotion",
+                            "value": "https://www.dailymotion.com/AnimeShinigami"
+                        }
+                    ],
+                    "torrent_sources": [{
+                        "type": "nyaa",
+                        "value": "https://nyaa.si/user/Dhymos75"
+                    }],
+                    "rss_sources": [{
+                        "type": "nyaa",
+                        "value": "https://nyaa.si/?page=rss&u=Dhymos75"
+                    }],
+                    "notes": "",
+                    "selected": true
+                },
             ]
         }
     }
