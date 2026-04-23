@@ -1,11 +1,10 @@
 "use strict";
 
 async function loadData() {
-    //load fansub data
-    //let url = `https://raw.githubusercontent.com/nekonyan14986/ifs_italian_fansub_search/master/data/fansubList.json?time=${Date.now()}`;
-	let url = `./data/fansubList.json?time=${Date.now()}`;
+    // Caricamento dati con cache busting e percorso relativo
+    let url = `./data/fansubList.json?time=${Date.now()}`;
 
-	await fetch(url)
+    await fetch(url)
         .then(response => {
             if (!response.ok) throw new Error("Errore nel caricamento di fansubList.json");
             return response.json();
@@ -17,6 +16,7 @@ async function loadData() {
 }
 
 async function loadIcons() {
+    // Caricamento icone con percorso relativo
     let url = `./data/types.json?time=${Date.now()}`;
     
     await fetch(url)
@@ -30,83 +30,80 @@ async function loadIcons() {
         .catch(error => console.error("Errore loadIcons:", error));
 }
 
-function create_section(name, table_id) {
+/**
+ * Crea una sezione tabella. 
+ * @param {string} name Nome visualizzato
+ * @param {string} table_id ID della tabella
+ * @param {HTMLElement} target Elemento DOM dove appendere la sezione
+ */
+function create_section(name, table_id, target) {
     let section = document.createElement('section');
-    let title = document.createElement('span')
-    let table = document.createElement('table')
+    let title = document.createElement('span');
+    let table = document.createElement('table');
 
-    table.classList.add("table", "custom-table", "table-responsive", "custom-table-responsive")
-    table.id = table_id
-    let t_head = document.createElement('thead')
-    let t_body = document.createElement('tbody')
+    table.classList.add("table", "custom-table", "table-responsive", "custom-table-responsive");
+    table.id = table_id;
+    let t_head = document.createElement('thead');
+    let t_body = document.createElement('tbody');
 
-    let first_row_html = `<input type="checkbox" id="${table_id}" checked="false" onclick="sel_head(this)">`
+    let first_row_html = `<input type="checkbox" id="${table_id}" checked="false" onclick="sel_head(this)">`;
+    let table_headers_list = [first_row_html, "Nome", "Sito & Social", "Torrent", "RSS", "Note"];
 
-
-    let table_headers_list = [first_row_html, "Nome", "Sito & Social", "Torrent", "RSS", "Note"]
-
-    let t_title_row = document.createElement('tr')
-
+    let t_title_row = document.createElement('tr');
     table_headers_list.forEach(element => {
-        let t_head_el = document.createElement('th')
-        t_head_el.scope = "col"
-        t_head_el.innerHTML = element
-
-        t_title_row.append(t_head_el)
+        let t_head_el = document.createElement('th');
+        t_head_el.scope = "col";
+        t_head_el.innerHTML = element;
+        t_title_row.append(t_head_el);
     });
 
+    t_head.append(t_title_row);
+    table.append(t_head);
+    table.append(t_body);
 
-    t_head.append(t_title_row)
-
-    table.append(t_head)
-    table.append(t_body)
-
-    title.innerText = name
-    title.className = "mb-5"
+    title.innerText = name;
+    title.className = "mb-5";
 
     section.className = "section_global";
-    section.style = "overflow-x:auto;"
+    section.style = "overflow-x:auto;";
 
-    section.append(title)
-    section.append(table)
+    section.append(title);
+    section.append(table);
 
-    document.querySelector("body > div.content > div").append(section);
+    // Se target non è specificato, usa il default del vecchio codice
+    if (!target) {
+        target = document.querySelector("body > div.content > div");
+    }
+    target.append(section);
 }
 
 function get_mapped_icon(type, value) {
-    let name = icons_mapping[type]["name"]
-    let img = icons_mapping[type]["image"]
-
-    return `<a title="${name} - ${value}" href="${value}" target="_blank"><img src="assets/icons/${img}"></a>`
+    let name = icons_mapping[type]["name"];
+    let img = icons_mapping[type]["image"];
+    return `<a title="${name} - ${value}" href="${value}" target="_blank"><img src="assets/icons/${img}"></a>`;
 }
 
 function populate_table(table_id, data) {
     let table = document.querySelector(`#${table_id} tbody`);
     data.forEach((fansub, index) => {
-        let row = document.createElement('tr')
+        let row = document.createElement('tr');
 
-        let sito_socials = ""
-        fansub.socials.forEach(
-            src => {
-                sito_socials += get_mapped_icon(src.type, src.value);
-            }
-        )
+        let sito_socials = "";
+        fansub.socials.forEach(src => {
+            sito_socials += get_mapped_icon(src.type, src.value);
+        });
 
-        let torrent_src = ""
-        fansub.torrent_sources.forEach(
-            src => {
-                torrent_src += get_mapped_icon(src.type, src.value);
-            }
-        )
+        let torrent_src = "";
+        fansub.torrent_sources.forEach(src => {
+            torrent_src += get_mapped_icon(src.type, src.value);
+        });
 
-        let rss_src = ""
-        fansub.rss_sources.forEach(
-            src => {
-                rss_src += get_mapped_icon(src.type, src.value);
-            }
-        )
+        let rss_src = "";
+        fansub.rss_sources.forEach(src => {
+            rss_src += get_mapped_icon(src.type, src.value);
+        });
 
-        let short_name = fansub.short_name ? " [" + fansub.short_name + "]" : ""
+        let short_name = fansub.short_name ? " [" + fansub.short_name + "]" : "";
 
         row.innerHTML = `
 		<th scope="row">
@@ -118,51 +115,59 @@ function populate_table(table_id, data) {
 		<td>${rss_src}</td>
 		<td>${fansub.notes}</td>
 		`;
-
-        table.append(row)
+        table.append(row);
     });
 }
 
-function check_values(id) {
-    fansubData.data[id].groups.forEach(
-        src => {
-            console.log(src.name, src.selected)
-        }
-    )
-}
-
-
-
 function sel_row(cb) {
     fansubData.data[cb.getAttribute("ifs_type")]["groups"][cb.getAttribute("ifs_pos", 10)].selected = cb.checked;
-    //check_values(cb.getAttribute("ifs_type"))
 }
 
 function sel_head(cb) {
-    fansubData.data[cb.id].groups.forEach(
-        (source, index) => {
-            source.selected = cb.checked;
-            document.getElementById(`${cb.id}-${index}`).checked = cb.checked;
-        });
-    //check_values(cb.id)
+    fansubData.data[cb.id].groups.forEach((source, index) => {
+        source.selected = cb.checked;
+        document.getElementById(`${cb.id}-${index}`).checked = cb.checked;
+    });
 }
 
 function create_tables() {
     document.getElementById("info").innerText = fansubData.last_update;
+    const mainContainer = document.querySelector("body > div.content > div");
 
     for (let section_id in fansubData.data) {
-        if (fansubData.data.hasOwnProperty(section_id)) { // this will check if key is owned by data object and not by any of it's ancestors
-            create_section(fansubData.data[section_id].name, section_id);
+        if (fansubData.data.hasOwnProperty(section_id)) {
+            
+            // Logica per il menu a tendina "Inattivi"
+            if (section_id === "inattivi") {
+                let btn = document.createElement("button");
+                btn.id = "btn-inattivi";
+                btn.className = "toggle-btn";
+                btn.innerText = fansubData.data[section_id].name;
+                btn.onclick = toggleInattivi; // Funzione definita in index.html
+                
+                let wrapper = document.createElement("div");
+                wrapper.id = "content-inattivi";
+                wrapper.className = "collapsible-content";
+                
+                mainContainer.append(btn);
+                mainContainer.append(wrapper);
+                
+                // Crea la sezione dentro il wrapper del menu a tendina
+                create_section(fansubData.data[section_id].name, section_id, wrapper);
+            } else {
+                // Sezione normale
+                create_section(fansubData.data[section_id].name, section_id, mainContainer);
+            }
+            
             populate_table(section_id, fansubData.data[section_id].groups);
         }
     }
 }
 
 async function ifs_main() {
-    await loadData()
-    await loadIcons()
-    create_tables()
-
+    await loadData();
+    await loadIcons();
+    create_tables();
 }
 
 function normalize_link(link) {
@@ -170,33 +175,30 @@ function normalize_link(link) {
 }
 
 function pre_build(){
-    let do_web = document.getElementById("web").checked
-    let do_torrent = document.getElementById("torrent").checked
+    let do_web = document.getElementById("web").checked;
+    let do_torrent = document.getElementById("torrent").checked;
     let destDiv = document.getElementById("divResultsLinks");
     destDiv.innerHTML = "";
 
-    if (!do_web && !do_torrent){
-        return;
-    }
+    if (!do_web && !do_torrent) return;
 
     let p = document.createElement("p");
     p.innerText = "Creazione links...";
-    destDiv.appendChild(p)
-    setTimeout(build_search, 300)
+    destDiv.appendChild(p);
+    setTimeout(build_search, 300);
 }
 
 function build_search() {
-    let do_web = document.getElementById("web").checked
-    let do_torrent = document.getElementById("torrent").checked
-    let search_term = document.getElementById("query_box").value
+    let do_web = document.getElementById("web").checked;
+    let do_torrent = document.getElementById("torrent").checked;
+    let search_term = document.getElementById("query_box").value;
     let destDiv = document.getElementById("divResultsLinks");
     destDiv.innerHTML = "";
 
-    let website_list = []
+    let website_list = [];
 
     for (let section_id in fansubData.data) {
-        if (!fansubData.data.hasOwnProperty(section_id)) // this will check if key is owned by data object and not by any of it's ancestors
-            continue;
+        if (!fansubData.data.hasOwnProperty(section_id)) continue;
 
         fansubData.data[section_id].groups.forEach(fansub => {
             if (fansub.selected) {
@@ -215,15 +217,12 @@ function build_search() {
         });
     }
 
-    //console.log(website_list)
-
-    // chunk size must be dynamic -> (32 - number of search words) -> 32 lowered to 30 to avoid false skip by google
-    let wordcount = search_term.trim().split(/\s+/).length
+    let wordcount = search_term.trim().split(/\s+/).length;
     let chunkSize = 30 - wordcount;
     let chunk_num = 1;
     for (let i = 0; i < website_list.length; i += chunkSize) {
         const chunk = website_list.slice(i, i + chunkSize);
-        let urls_str = chunk.join(" OR site:")
+        let urls_str = chunk.join(" OR site:");
 
         let anchor = document.createElement('a');
         anchor.href = `https://www.google.com/search?q=intitle:${search_term} site:${urls_str}`;
@@ -233,13 +232,11 @@ function build_search() {
         let sep = document.createElement("p");
         sep.innerText = " | ";
 
-        destDiv.appendChild(anchor)
+        destDiv.appendChild(anchor);
         if (i + chunkSize < website_list.length)
             destDiv.appendChild(sep);
 
         chunk_num++;
     }
-
     destDiv.hidden = false;
-
 }
