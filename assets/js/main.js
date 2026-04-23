@@ -138,7 +138,7 @@ function create_tables() {
         if (fansubData.data.hasOwnProperty(section_id)) {
             
             // Logica per il menu a tendina "Inattivi"
-            if (section_id === "inattivi") {
+            if (section_id === "dead") {
                 let btn = document.createElement("button");
                 btn.id = "btn-inattivi";
                 btn.className = "toggle-btn";
